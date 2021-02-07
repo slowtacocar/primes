@@ -12,7 +12,7 @@ def checkPrimeSlow(x):
 
 
 values = [2]
-maxNum = 100000  # int(input("num: "))
+maxNum = 30000  # int(input("num: "))
 for x in range(3, maxNum):
     if (checkPrime(x, values)):
     #if (checkPrimeSlow(x)):

@@ -14,7 +14,7 @@ def checkPrimeSlow(x):
 
 if __name__ == '__main__':
 
-    maxNum = 200000  # int(input("num: "))
+    maxNum = 30000  # int(input("num: "))
     for x in range(3, maxNum):
         if (checkPrime(x)):
         #if (checkPrimeSlow(x)):
