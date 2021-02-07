@@ -1,8 +1,3 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
 def checkPrime(x, primes):
     for value in primes:
         if x % value == 0:
@@ -24,5 +19,3 @@ for x in range(3, maxNum):
         values.append(x)
 print(values)
 print(len(values))
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
