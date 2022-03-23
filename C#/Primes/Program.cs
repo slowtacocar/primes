@@ -8,8 +8,13 @@ namespace Primes
     {
         static bool isPrime(int n, ArrayList primes)
         {
+            double sq = Math.sqrt(n);
             foreach (int i in primes)
             {
+                if (i > sq)
+                {
+                    break;
+                }
                 if (n % i == 0)
                 {
                     return false;
