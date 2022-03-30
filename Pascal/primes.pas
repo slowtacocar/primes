@@ -1,10 +1,7 @@
 program primes;
 
-const
-count = 30000;
-
 var
-allPrimes: array[1..count] of integer;
+allPrimes: array[1..15000] of integer;
 numPrimes: integer = 0;
 j: integer;
 i: integer;
@@ -13,7 +10,7 @@ sq: real;
 label loopEnd, otherLabel;
 
 begin
-  for i := 2 to count do
+  for i := 2 to 30000 do
   begin
     sq := sqrt(i);
     for j := 1 to numPrimes do
