@@ -1,6 +1,7 @@
 
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
+#include "math.h"
 
 #include <iostream>
 #include <chrono>
@@ -10,8 +11,9 @@ cudaError_t addWithCuda(int* c, unsigned int size);
 __global__ void primes(int* c)
 {
     int n = blockDim.x * blockIdx.x + threadIdx.x;
+    double sq = sqrt((double) n);
     if (n > 1) {
-        for (int i = 2; i < n; i++) {
+        for (int i = 2; i <= sq; i++) {
             if (n % i == 0) {
                 return;
             }
