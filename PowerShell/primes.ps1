@@ -1,7 +1,10 @@
 function isPrime {
     param ($n, $primes)
-
+    $sq = [math]::sqrt($n)
     foreach ($i in $primes) {
+        if ($i -gt $sq) {
+            Break
+        }
         if ($n % $i -eq 0) {
             return $false
         }
