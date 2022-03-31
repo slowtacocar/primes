@@ -7,24 +7,28 @@
 
 import Foundation
 
-var values:[Int] = [2]
+var values:[Int] = []
 
 func checkPrime(x: Int) -> Bool {
+    let sq = Int(sqrt(Double(x)))
     for value in values {
+        if (value > sq) {
+            break
+        }
         if (x % value == 0){
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 //if let value = readLine(), let maxNum = Int(value) {
-NSLog("Start")
-var maxNum = 200000
-    for x in 3...maxNum {
-        if (checkPrime(x: x)) {
-            values.append(x)
-        }
-        }
-    print(values)
-NSLog("Finish")
+let start = Date.timeIntervalSinceReferenceDate
+let maxNum = 1000000
+for x in 2...maxNum {
+    if (checkPrime(x: x)) {
+        values.append(x)
+    }
+}
+print(values.count)
+print("Finished in: \(Date.timeIntervalSinceReferenceDate - start)s")

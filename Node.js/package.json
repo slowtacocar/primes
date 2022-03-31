@@ -1,0 +1,8 @@
+{
+  "name": "primes",
+  "version": "0.1.0",
+  "main": "primes.js",
+  "scripts": {
+    "start": "node primes.js"
+  }
+}

@@ -1,40 +1,32 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdbool.h>
+#include <math.h>
 
-int checkPrime(int x, int *primes, int index) {
-
-    for(int i = 0; i < index; i++)  {
+bool checkPrime(int x, int *primes, int index) {
+    double sq = sqrt(x);
+    for(int i = 0; i < index && primes[i] <= sq; ++i)  {
         if (x % primes[i] == 0){
-            return 0;
+            return false;
         }
     }
-    return 1;
+    return true;
 }
 
 int main()
 {
-    time_t now;
-    time(&now);
-    printf("Today is : %s", ctime(&now));
-
     int maxNum = 1000000;
-    printf("Started at: %s", ctime(&now));
+    struct timespec start, end;
+    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 
-	int aSize = (int)(maxNum / 2);
-    int values[aSize];
-    int index = 1;
-    int found = 0;
-    values[0] = 2;
-    for (int x = 2; x< maxNum; x++) {
-        if (checkPrime(x, values, index) == 1) {
-            values[index++] = x;
-            found++;
-            printf("%d, ", x);
+    int values[maxNum / 2];
+    int index = 0;
+    for (int x = 2; x< maxNum; ++x) {
+        if (checkPrime(x, values, index)) {
+            ++index;
         }
     }
-    printf("\nfound %d, ", found);
-
-    time(&now);
-    printf("\nFinished at: %s", ctime(&now));
-
+    clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+    printf("found %d, \n", index);
+    printf("Finished in ms: %ld\n", (end.tv_sec - start.tv_sec) * 1000 + (end.tv_nsec - start.tv_nsec) / 1000000);
 }
